@@ -1,36 +1,10 @@
-import React from 'react'
+import React,{ Component } from 'react'
 import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
-
-const places = [
-  {
-    id: 1,
-    imageUrl:
-      'https://lonelyplanetwp.imgix.net/2015/12/bratislava-castle-150-cs.jpg?crop=entropy&fit=crop&h=421&sharp=10&vib=20&w=748',
-    title: 'Bratislava',
-  },
-  {
-    id: 2,
-    imageUrl:
-      'https://www.polar-quest.com/media/1539/copyright_adam-rheborg-1.jpg?rnd=636150747260000000&crop=0,0,0,0&cropmode=percentage&center=0.78909612625538017,0.63560732113144758&width=1600&height=666&mode=crop&upscale=false&quality=84',
-    title: 'Svalbard',
-  },
-  {
-    id: 3,
-    imageUrl:
-      'https://lonelyplanetimages.imgix.net/mastheads/stock-photo-st-stephens-church-112868985.jpg?sharp=10&vib=20&w=1200',
-    title: 'Vienna',
-  },
-  {
-    id: 4,
-    imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Scotland',
-  },
-  {},
-]
+import places from './places'
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 40,
@@ -46,24 +20,71 @@ const styles = StyleSheet.create({
   },
 })
 
-const renderItem = item => (
-  <TouchableOpacity id={item.id} onPress={() => console.log('Selected')} style={styles.listItem}>
+const renderItem = (item, setSelected) => (
+  <TouchableOpacity id={item.id} onPress={setSelected} style={styles.listItem}>
     <Image source={{ uri: item.imageUrl }} style={{ width: 175, height: 175 }} />
     <Text>{item.title}</Text>
   </TouchableOpacity>
 )
 
-export default (App = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Vote for summit destination</Text>
-      <FlatList
-        data={places}
-        numColumns={2}
-        scrollEnabled={false}
-        renderItem={({ item }) => renderItem(item)}
-        keyExtractor={(item, index) => item.id}
-      />
-    </View>
-  )
-})
+// TODO: Make sure not to have duplicates across voting rounds
+const getRandomPlaces = selectedPlaces => {
+  const currentPlaces = []
+  let count = 0
+
+  while (count < 4) {
+    const randomPlace = places[Math.floor(Math.random() * places.length)]
+    currentPlaces.push(randomPlace)
+    count++
+  }
+  return currentPlaces
+}
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedPlaces: [],
+      numberOfVotes: 0,
+    }
+  }
+
+  // TODO: Animations between votingSteps
+  setSelected(item) {
+    this.setState({
+      selectedPlaces: [...this.state.selectedPlaces, item.id],
+      numberOfVotes: this.state.numberOfVotes + 1,
+    })
+  }
+
+  render() {
+    const {selectedPlaces, numberOfVotes} = this.state
+    if (numberOfVotes === 4) {
+      // TODO: Move to separate component
+      return (
+        <View style={styles.container}>
+          <Text style={styles.title}>Thanks for voting!</Text>
+          <Text>You selected the following destinations:</Text>
+          {selectedPlaces.map(id => {
+            return(<Text>{places[id].title}</Text>)
+          })}
+        </View>
+      )
+    }
+    // TODO: Move to separate component
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Vote for summit destination</Text>
+        <FlatList
+          data={getRandomPlaces()}
+          numColumns={2}
+          scrollEnabled={false}
+          renderItem={({ item }) => renderItem(item, () => this.setSelected(item))}
+          keyExtractor={(item, index) => item.id}
+        />
+      </View>
+    )
+  }
+}
+
+export default App
