@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   },
 })
 
+// TODO: Consider results to be saved/fetched from API
 const Results = ({ selectedPlaces, places }) => (
   <View style={styles.container}>
     <Text style={styles.title}>Thanks for voting!</Text>
