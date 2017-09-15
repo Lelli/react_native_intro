@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import VotingStep from './votingStep'
 import places from './places'
 
 const styles = StyleSheet.create({
@@ -14,18 +15,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  listItem: {
-    marginHorizontal: 2,
-    marginBottom: 5,
-  },
 })
-
-const renderItem = (item, setSelected) => (
-  <TouchableOpacity id={item.id} onPress={setSelected} style={styles.listItem}>
-    <Image source={{ uri: item.imageUrl }} style={{ width: 175, height: 175 }} />
-    <Text>{item.title}</Text>
-  </TouchableOpacity>
-)
 
 // TODO: Make sure not to have duplicates across voting rounds
 const getRandomPlaces = selectedPlaces => {
@@ -50,7 +40,7 @@ class App extends Component {
   }
 
   // TODO: Animations between votingSteps
-  setSelected(item) {
+  setSelected = (item) => {
     this.setState({
       selectedPlaces: [...this.state.selectedPlaces, item.id],
       numberOfVotes: this.state.numberOfVotes + 1,
@@ -71,18 +61,8 @@ class App extends Component {
         </View>
       )
     }
-    // TODO: Move to separate component
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Vote for summit destination</Text>
-        <FlatList
-          data={getRandomPlaces()}
-          numColumns={2}
-          scrollEnabled={false}
-          renderItem={({ item }) => renderItem(item, () => this.setSelected(item))}
-          keyExtractor={(item, index) => item.id}
-        />
-      </View>
+      <VotingStep places={getRandomPlaces()} setSelected={this.setSelected}/>
     )
   }
 }
