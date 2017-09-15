@@ -4,7 +4,7 @@ export default [
     id: 0,
     imageUrl:
       'https://lonelyplanetwp.imgix.net/2015/12/bratislava-castle-150-cs.jpg?crop=entropy&fit=crop&h=421&sharp=10&vib=20&w=748',
-    title: 'Bratislava',
+    title: 'Slovakia',
   },
   {
     id: 1,
@@ -14,86 +14,85 @@ export default [
   },
   {
     id: 2,
-    imageUrl:
-      'https://lonelyplanetimages.imgix.net/mastheads/stock-photo-st-stephens-church-112868985.jpg?sharp=10&vib=20&w=1200',
-    title: 'Vienna',
+    imageUrl: 'https://media1.britannica.com/eb-media/20/191120-004-AD2A2694.jpg',
+    title: 'Austria',
   },
   {
     id: 3,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Scotland',
+      'https://www.topdeck.travel/cache/images/303b5c8e-6e7c-49a7-899c-b4d5e801cbb6/725-285-1-875-350/blue-lagoon-iceland.jpg',
+    title: 'Iceland',
   },
   {
     id: 4,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Tallin',
+    title: 'Estonia',
   },
   {
     id: 5,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Paris',
+    title: 'Malta',
   },
   {
     id: 6,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Barcelona',
+    title: 'Tunisia',
   },
   {
     id: 7,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Athens',
+    title: 'Hungary',
   },
   {
     id: 8,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Copenhagen',
+    title: 'Turkey',
   },
   {
     id: 9,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Amsterdam',
+    title: 'Algeria',
   },
   {
     id: 10,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Zurich',
+    title: 'Moldova',
   },
   {
     id: 11,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Tunis',
+    title: 'Bulgaria',
   },
   {
     id: 12,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Marocco',
+    title: 'Greece',
   },
   {
     id: 13,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Istanbul',
+    title: 'Netherlands',
   },
   {
     id: 14,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Prague',
+    title: 'Czechoslovakia',
   },
   {
     id: 15,
     imageUrl:
       'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
-    title: 'Brussels',
+    title: 'Belgium',
   },
 ]
