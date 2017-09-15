@@ -1,7 +1,8 @@
-import React,{ Component } from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import VotingStep from './votingStep'
+import VotingStep from './VotingStep'
 import places from './places'
+import Results from './Results'
 
 const styles = StyleSheet.create({
   container: {
@@ -40,7 +41,7 @@ class App extends Component {
   }
 
   // TODO: Animations between votingSteps
-  setSelected = (item) => {
+  setSelected = item => {
     this.setState({
       selectedPlaces: [...this.state.selectedPlaces, item.id],
       numberOfVotes: this.state.numberOfVotes + 1,
@@ -48,22 +49,11 @@ class App extends Component {
   }
 
   render() {
-    const {selectedPlaces, numberOfVotes} = this.state
+    const { selectedPlaces, numberOfVotes } = this.state
     if (numberOfVotes === 4) {
-      // TODO: Move to separate component
-      return (
-        <View style={styles.container}>
-          <Text style={styles.title}>Thanks for voting!</Text>
-          <Text>You selected the following destinations:</Text>
-          {selectedPlaces.map(id => {
-            return(<Text>{places[id].title}</Text>)
-          })}
-        </View>
-      )
+      return <Results selectedPlaces={selectedPlaces} places={places} />
     }
-    return (
-      <VotingStep places={getRandomPlaces()} setSelected={this.setSelected}/>
-    )
+    return <VotingStep places={getRandomPlaces()} setSelected={this.setSelected} />
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import VotingItem from './votingItem'
+import VotingItem from './VotingItem'
 
 const styles = StyleSheet.create({
   container: {
@@ -17,17 +17,18 @@ const styles = StyleSheet.create({
 })
 
 const VotingStep = ({ places, setSelected }) => {
-  return(
+  return (
     <View style={styles.container}>
       <Text style={styles.title}>Vote for summit destination</Text>
       <FlatList
         data={places}
         numColumns={2}
         scrollEnabled={false}
-        renderItem={({ item }) => <VotingItem item={item} setSelected={() => setSelected(item)}/>}
+        renderItem={({ item }) => <VotingItem item={item} setSelected={() => setSelected(item)} />}
         keyExtractor={(item, index) => item.id}
       />
-    </View>)
+    </View>
+  )
 }
 
 export default VotingStep
