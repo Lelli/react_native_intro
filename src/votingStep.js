@@ -1,5 +1,6 @@
-import React,{ Component } from 'react'
-import { StyleSheet, Text, View, FlatList, Image, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
+import VotingItem from './votingItem'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,18 +14,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 20,
   },
-  listItem: {
-    marginHorizontal: 2,
-    marginBottom: 5,
-  },
 })
-
-const renderItem = (item, setSelected) => (
-  <TouchableOpacity id={item.id} onPress={setSelected} style={styles.listItem}>
-    <Image source={{ uri: item.imageUrl }} style={{ width: 175, height: 175 }} />
-    <Text>{item.title}</Text>
-  </TouchableOpacity>
-)
 
 const VotingStep = ({ places, setSelected }) => {
   return(
@@ -34,7 +24,7 @@ const VotingStep = ({ places, setSelected }) => {
         data={places}
         numColumns={2}
         scrollEnabled={false}
-        renderItem={({ item }) => renderItem(item, () => setSelected(item))}
+        renderItem={({ item }) => <VotingItem item={item} setSelected={() => setSelected(item)}/>}
         keyExtractor={(item, index) => item.id}
       />
     </View>)
