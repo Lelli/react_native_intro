@@ -1,4 +1,3 @@
-// TODO: Add actual images for places id 4-15
 export default [
   {
     id: 0,
@@ -26,73 +25,73 @@ export default [
   {
     id: 4,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://www.easyjet.com/en/holidays/shared/images/guides/estonia.jpg',
     title: 'Estonia',
   },
   {
     id: 5,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://a4.odistatic.net/images/landingpages/vacation/640x480/malta_640x480.jpg',
     title: 'Malta',
   },
   {
     id: 6,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://static01.nyt.com/images/2012/04/08/travel/08TUNISIA_SPAN/08TUNISIA-jumbo.jpg',
     title: 'Tunisia',
   },
   {
     id: 7,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://cdn.ek.aero/english/images/Hungary-Large_tcm233-2395885.jpg',
     title: 'Hungary',
   },
   {
     id: 8,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://d3jkudlc7u70kh.cloudfront.net/interesting-facts-about-turkey.jpg',
     title: 'Turkey',
   },
   {
     id: 9,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://i.ytimg.com/vi/0Y-0CYg_oIA/maxresdefault.jpg',
     title: 'Algeria',
   },
   {
     id: 10,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://www.responsibletravel.com/imagesClient/AWM1.jpg',
     title: 'Moldova',
   },
   {
     id: 11,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://www.eurail.com/sites/eurail.com/files/styles/asset_image_images_slider_big/public/assets/images/2017/02/belogradchik_fortress_bulgaria.jpg?itok=WIeLwQ-M',
     title: 'Bulgaria',
   },
   {
     id: 12,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Greece-Country-Santorini-Oia-468940432-marchello74-copy.jpg',
     title: 'Greece',
   },
   {
     id: 13,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://www.timeshighereducation.com/sites/default/files/dutch_tulips.jpeg',
     title: 'Netherlands',
   },
   {
     id: 14,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://brightcove04pmdo-a.akamaihd.net/5104226627001/5104226627001_5244682740001_5212893703001-vs.jpg?pubId=5104226627001&videoId=5212893703001',
     title: 'Czechoslovakia',
   },
   {
     id: 15,
     imageUrl:
-      'https://www.trafalgar.com/~/media/images/website-refresh/hero/bestofirelandandscotland-hero-77898443.jpg?mw=1200&',
+      'https://www.transat.com/getmedia/4989cae8-bad4-41be-911f-47543ac444a2/Belgium-WithFriends-1000x604.jpg.aspx',
     title: 'Belgium',
   },
 ]

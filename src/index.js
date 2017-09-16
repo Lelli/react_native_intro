@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import VotingStep from './VotingStep'
+import VotingStep from './votingStep'
 import places from './places'
-import Results from './Results'
+import Results from './results'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
 })
 
-// TODO: Make sure not to have duplicates across voting rounds
+// TODO: Should duplicates across voting rounds be allowed?
 const getRandomPlaces = selectedPlaces => {
   const currentPlaces = []
   let count = 0

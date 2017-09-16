@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import PropTypes from 'prop-types'
-import VotingItem from './VotingItem'
+import VotingItem from './votingItem'
 
 const styles = StyleSheet.create({
   container: {
