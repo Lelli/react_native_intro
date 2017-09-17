@@ -18,15 +18,18 @@ const styles = StyleSheet.create({
   },
 })
 
-// TODO: Should duplicates across voting rounds be allowed?
+// TODO: Should already presented destinations be presented in next vote-round?
 const getRandomPlaces = selectedPlaces => {
   const currentPlaces = []
   let count = 0
 
-  while (count < 4) {
+  while(count < 4) {
     const randomPlace = places[Math.floor(Math.random() * places.length)]
-    currentPlaces.push(randomPlace)
-    count++
+    const notAdded = currentPlaces.indexOf(randomPlace) === -1
+    if(notAdded){
+      currentPlaces.push(randomPlace)
+      count++
+    }
   }
   return currentPlaces
 }
