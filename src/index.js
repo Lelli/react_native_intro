@@ -18,15 +18,14 @@ const styles = StyleSheet.create({
   },
 })
 
-// TODO: Should already presented destinations be presented in next vote-round?
 const getRandomPlaces = selectedPlaces => {
   const currentPlaces = []
   let count = 0
 
   while(count < 4) {
     const randomPlace = places[Math.floor(Math.random() * places.length)]
-    const notAdded = currentPlaces.indexOf(randomPlace) === -1
-    if(notAdded){
+    const notAdded = !selectedPlaces.includes(randomPlace)
+    if (notAdded) {
       currentPlaces.push(randomPlace)
       count++
     }
@@ -56,7 +55,7 @@ class App extends Component {
     if (numberOfVotes === 4) {
       return <Results selectedPlaces={selectedPlaces} places={places} />
     }
-    return <VotingStep places={getRandomPlaces()} setSelected={this.setSelected} />
+    return <VotingStep places={getRandomPlaces(selectedPlaces)} setSelected={this.setSelected} />
   }
 }
 

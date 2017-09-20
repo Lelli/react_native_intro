@@ -21,7 +21,7 @@ const Results = ({ selectedPlaces, places }) => (
     <Text style={styles.title}>Thanks for voting!</Text>
     <Text>You selected the following destinations:</Text>
     {selectedPlaces.map(id => {
-      return <Text key={places[id].imageUrl}>{places[id].title}</Text>
+      return <Text key={places[id].id}>{places[id].title}</Text>
     })}
   </View>
 )

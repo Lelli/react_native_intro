@@ -17,20 +17,18 @@ const styles = StyleSheet.create({
   },
 })
 
-const VotingStep = ({ places, setSelected }) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Vote for summit destination</Text>
-      <FlatList
-        data={places}
-        numColumns={2}
-        scrollEnabled={false}
-        renderItem={({ item }) => <VotingItem item={item} setSelected={() => setSelected(item)} />}
-        keyExtractor={(item, index) => item.id}
-      />
-    </View>
-  )
-}
+const VotingStep = ({ places, setSelected }) => (
+  <View style={styles.container}>
+    <Text style={styles.title}>Vote for summit destination</Text>
+    <FlatList
+      data={places}
+      numColumns={2}
+      scrollEnabled={false}
+      renderItem={({ item }) => <VotingItem item={item} setSelected={() => setSelected(item)} />}
+      keyExtractor={(item, index) => item.id}
+    />
+  </View>
+)
 
 VotingStep.propTypes = {
   places: PropTypes.array.isRequired,
