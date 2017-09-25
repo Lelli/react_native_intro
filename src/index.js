@@ -31,12 +31,23 @@ class App extends Component {
     }
   }
 
+  voteForItem = itemId => {
+    return fetch('http://localhost:3000/vote/'+itemId, {method: 'POST'})
+       .then((response) => {
+         return response.json()
+       })
+       .catch((error) => {
+         console.error(error)
+       });
+  }
+
   // TODO: Animations between votingSteps
   setSelected = item => {
     this.setState({
       selectedPlaces: [...this.state.selectedPlaces, item.id],
       numberOfVotes: this.state.numberOfVotes + 1,
     })
+    return this.voteForItem(item.id)
   }
 
   render() {
