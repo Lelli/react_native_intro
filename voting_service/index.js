@@ -67,11 +67,22 @@ let votes = {
     title: 'Belgium',
   }
 }
+const objectToArray = votesObject => {
+  let array = []
+  Object.keys(votesObject).forEach(id => {
+    return array.push({
+      id: id,
+      title: votesObject[id].title,
+      votes: votesObject[id].votes
+    })
+  })
+  return array
+}
 
 app.get('/', function (req, res) {
   res.send('I am your super simple voting service! :)')
 }).get('/results', function (req, res) {
-  res.send(votes)
+  res.send(objectToArray(votes))
 }).post('/vote/:id', function(req, res){
   const id = req.params.id
   if(votes[id]){
