@@ -92,7 +92,7 @@ app.get('/', function (req, res) {
     res.send('Bad ID')
   }
 })
-
-app.listen(3000, function () {
+app.set('port', (process.env.PORT || 5000));
+app.listen(app.get('port'), function () {
   console.log('Voting app listening on port 3000!')
 })
