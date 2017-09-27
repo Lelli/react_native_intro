@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   voteForItem = itemId => {
-    return fetch('http://localhost:3000/vote/'+itemId, {method: 'POST'})
+    return fetch('https://nameless-depths-10115.herokuapp.com/vote/'+itemId, {method: 'POST'})
        .then((response) => {
          return response.json()
        })

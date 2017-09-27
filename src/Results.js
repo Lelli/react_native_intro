@@ -41,7 +41,7 @@ class Results extends Component {
   }
 
   fetchResults = () => {
-    return fetch('http://localhost:3000/results')
+    return fetch('https://nameless-depths-10115.herokuapp.com/results')
        .then((response) => response.json())
        .then((responseJson) => {
          responseJson = responseJson.sort((a, b) => b.votes - a.votes)
