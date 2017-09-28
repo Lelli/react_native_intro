@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   },
 })
 
+// TODO: Prop validation
 class Results extends Component {
   constructor(props) {
     super(props)
@@ -42,15 +43,15 @@ class Results extends Component {
 
   fetchResults = () => {
     return fetch('https://nameless-depths-10115.herokuapp.com/results')
-       .then((response) => response.json())
-       .then((responseJson) => {
-         responseJson = responseJson.sort((a, b) => b.votes - a.votes)
-         // Could hide loader right here, but might be more fun to show it for 6s?
-         return this.setState({ results: responseJson })
-       })
-       .catch((error) => {
-         console.error(error)
-       });
+      .then(response => response.json())
+      .then(responseJson => {
+        responseJson = responseJson.sort((a, b) => b.votes - a.votes)
+        // Could hide loader right here, but might be more fun to show it for 6s?
+        return this.setState({ results: responseJson })
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 
   componentDidMount() {
@@ -73,7 +74,7 @@ class Results extends Component {
                 width: 200,
                 height: 200,
               }}
-              source={require('./assets/Plane.json')}
+              source={require('./assets/plane.json')}
               loop={true}
             />
           </View>
@@ -89,7 +90,11 @@ class Results extends Component {
         })}
         <Text style={styles.results}>Current results</Text>
         {results.map(place => {
-          return <Text key={place.id}>{place.title} ({place.votes})</Text>
+          return (
+            <Text key={place.id}>
+              {place.title} ({place.votes})
+            </Text>
+          )
         })}
       </View>
     )
