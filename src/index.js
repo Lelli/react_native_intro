@@ -32,16 +32,15 @@ class App extends Component {
   }
 
   voteForItem = itemId => {
-    return fetch('https://nameless-depths-10115.herokuapp.com/vote/'+itemId, {method: 'POST'})
-       .then((response) => {
-         return response.json()
-       })
-       .catch((error) => {
-         console.error(error)
-       });
+    return fetch(`https://nameless-depths-10115.herokuapp.com/vote/${itemId}`, { method: 'POST' })
+      .then(response => {
+        return response.json()
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 
-  // TODO: Animations between votingSteps
   setSelected = item => {
     this.setState({
       selectedPlaces: [...this.state.selectedPlaces, item.id],

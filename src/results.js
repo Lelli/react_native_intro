@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Animation from 'lottie-react-native'
+import PropTypes from 'prop-types'
 
 const styles = StyleSheet.create({
   container: {
@@ -31,7 +32,6 @@ const styles = StyleSheet.create({
   },
 })
 
-// TODO: Prop validation
 class Results extends Component {
   constructor(props) {
     super(props)
@@ -47,6 +47,7 @@ class Results extends Component {
       .then(responseJson => {
         responseJson = responseJson.sort((a, b) => b.votes - a.votes)
         // Could hide loader right here, but might be more fun to show it for 6s?
+        setTimeout(() => this.setState({ showLoader: false }), 6000)
         return this.setState({ results: responseJson })
       })
       .catch(error => {
@@ -57,8 +58,6 @@ class Results extends Component {
   componentDidMount() {
     this.animation.play()
     this.fetchResults()
-    // If we hide loader directly upon results fetched, remove the line below
-    setTimeout(() => this.setState({ showLoader: false }), 6000)
   }
 
   render() {
@@ -85,20 +84,21 @@ class Results extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Thanks for voting!</Text>
         <Text>You voted on the following destinations:</Text>
-        {selectedPlaces.map(id => {
-          return <Text key={places[id].id}>{places[id].title}</Text>
-        })}
+        {selectedPlaces.map(id => <Text key={places[id].id}>{places[id].title}</Text>)}
         <Text style={styles.results}>Current results</Text>
-        {results.map(place => {
-          return (
-            <Text key={place.id}>
-              {place.title} ({place.votes})
-            </Text>
-          )
-        })}
+        {results.map(place => (
+          <Text key={place.id}>
+            {place.title} ({place.votes})
+          </Text>
+        ))}
       </View>
     )
   }
+}
+
+Results.propTypes = {
+  selectedPlaces: PropTypes.array.isRequired,
+  places: PropTypes.array.isRequired,
 }
 
 export default Results
