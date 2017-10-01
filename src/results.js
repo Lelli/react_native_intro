@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import Animation from 'lottie-react-native'
 import PropTypes from 'prop-types'
 
+import places from './places'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -36,7 +38,7 @@ class Results extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showLoader: true,
+      isLoading: true,
       results: [],
     }
   }
@@ -47,7 +49,7 @@ class Results extends Component {
       .then(responseJson => {
         responseJson = responseJson.sort((a, b) => b.votes - a.votes)
         // Could hide loader right here, but might be more fun to show it for 6s?
-        setTimeout(() => this.setState({ showLoader: false }), 6000)
+        setTimeout(() => this.setState({ isLoading: false }), 5000)
         return this.setState({ results: responseJson })
       })
       .catch(error => {
@@ -61,9 +63,9 @@ class Results extends Component {
   }
 
   render() {
-    const { selectedPlaces, places } = this.props
+    const { selectedPlaces } = this.props
     const { results } = this.state
-    if (this.state.showLoader) {
+    if (this.state.isLoading) {
       return (
         <View style={styles.animationContainer}>
           <View style={styles.animation}>
@@ -98,7 +100,6 @@ class Results extends Component {
 
 Results.propTypes = {
   selectedPlaces: PropTypes.array.isRequired,
-  places: PropTypes.array.isRequired,
 }
 
 export default Results

@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
   },
 })
 
-const VotingItem = ({ item, setSelected }) => (
-  <TouchableOpacity id={item.id} onPress={setSelected} style={styles.listItem}>
+const VotingItem = ({ item, onPress }) => (
+  <TouchableOpacity id={item.id} onPress={onPress} style={styles.listItem}>
     <Image source={{ uri: item.imageUrl }} style={{ width: 175, height: 175 }} />
     <Text>{item.title}</Text>
   </TouchableOpacity>
@@ -18,7 +18,7 @@ const VotingItem = ({ item, setSelected }) => (
 
 VotingItem.propTypes = {
   item: PropTypes.object.isRequired,
-  setSelected: PropTypes.func.isRequired,
+  onPress: PropTypes.func.isRequired,
 }
 
 export default VotingItem

@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native'
 import Animation from 'lottie-react-native'
 
 import VotingStep from './votingStep'
-import places from './places'
 import Results from './results'
+import places from './places'
 
 const getRandomPlaces = selectedPlaces => {
   const currentPlaces = []
@@ -14,6 +14,7 @@ const getRandomPlaces = selectedPlaces => {
     const randomPlace = places[Math.floor(Math.random() * places.length)]
     const notAdded =
       !selectedPlaces.includes(randomPlace.id) && !currentPlaces.includes(randomPlace)
+
     if (notAdded) {
       currentPlaces.push(randomPlace)
       count++
@@ -27,7 +28,6 @@ class App extends Component {
     super(props)
     this.state = {
       selectedPlaces: [],
-      numberOfVotes: 0,
     }
   }
 
@@ -41,20 +41,21 @@ class App extends Component {
       })
   }
 
-  setSelected = item => {
+  setSelectedPlace = item => {
     this.setState({
       selectedPlaces: [...this.state.selectedPlaces, item.id],
-      numberOfVotes: this.state.numberOfVotes + 1,
     })
     return this.voteForItem(item.id)
   }
 
   render() {
-    const { selectedPlaces, numberOfVotes } = this.state
-    if (numberOfVotes === 4) {
-      return <Results selectedPlaces={selectedPlaces} places={places} />
+    const { selectedPlaces } = this.state
+    if (selectedPlaces.length === 4) {
+      return <Results selectedPlaces={selectedPlaces} />
     }
-    return <VotingStep places={getRandomPlaces(selectedPlaces)} setSelected={this.setSelected} />
+    return (
+      <VotingStep places={getRandomPlaces(selectedPlaces)} onItemSelected={this.setSelectedPlace} />
+    )
   }
 }
 
