@@ -6,29 +6,29 @@ import VotingStep from './votingStep'
 import Results from './results'
 import places from './places'
 
-const getRandomPlaces = selectedPlaces => {
-  const currentPlaces = []
-  let count = 0
-
-  while (count < 4) {
-    const randomPlace = places[Math.floor(Math.random() * places.length)]
-    const notAdded =
-      !selectedPlaces.includes(randomPlace.id) && !currentPlaces.includes(randomPlace)
-
-    if (notAdded) {
-      currentPlaces.push(randomPlace)
-      count++
-    }
-  }
-  return currentPlaces
-}
-
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       selectedPlaces: [],
     }
+  }
+
+  getRandomPlaces = () => {
+    const currentPlaces = []
+    let count = 0
+
+    while (count < 4) {
+      const randomPlace = places[Math.floor(Math.random() * places.length)]
+      const notAdded =
+        !this.state.selectedPlaces.includes(randomPlace.id) && !currentPlaces.includes(randomPlace)
+
+      if (notAdded) {
+        currentPlaces.push(randomPlace)
+        count++
+      }
+    }
+    return currentPlaces
   }
 
   voteForItem = itemId => {
@@ -50,12 +50,12 @@ class App extends Component {
 
   render() {
     const { selectedPlaces } = this.state
+    const places = this.getRandomPlaces()
+
     if (selectedPlaces.length === 4) {
       return <Results selectedPlaces={selectedPlaces} />
     }
-    return (
-      <VotingStep places={getRandomPlaces(selectedPlaces)} onItemSelected={this.setSelectedPlace} />
-    )
+    return <VotingStep places={places} onItemSelected={this.setSelectedPlace} />
   }
 }
 
