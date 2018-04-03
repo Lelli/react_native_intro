@@ -7,7 +7,6 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"lottie-react-native": "^2.2.0",
 		"prop-types": "^15.5.10",
 		"react": "16.0.0-alpha.12",
 		"react-native": "0.48.3"
