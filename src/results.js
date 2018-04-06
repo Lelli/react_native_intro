@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, Animated, Easing, Image } from 'react-native'
 import PropTypes from 'prop-types'
 
 import places from './places'
-// import worldImage from "./assets/world.png";
 
 const styles = StyleSheet.create({
   container: {
@@ -40,8 +39,8 @@ class Results extends Component {
     this.state = {
       isLoading: true,
       results: [],
+      spinValue: new Animated.Value(0),
     }
-    this.spinValue = new Animated.Value(0)
   }
 
   fetchResults = () => {
@@ -59,8 +58,9 @@ class Results extends Component {
   }
 
   spin() {
-    this.spinValue.setValue(0)
-    Animated.timing(this.spinValue, {
+    const { spinValue } = this.state
+    spinValue.setValue(0)
+    Animated.timing(spinValue, {
       toValue: 1,
       duration: 4000,
       easing: Easing.linear,
@@ -74,9 +74,9 @@ class Results extends Component {
 
   render() {
     const { selectedPlaces } = this.props
-    const { results } = this.state
-    if (this.state.isLoading) {
-      const spin = this.spinValue.interpolate({
+    const { isLoading, results, spinValue } = this.state
+    if (isLoading) {
+      const spin = spinValue.interpolate({
         inputRange: [0, 1],
         outputRange: ['0deg', '-360deg'],
       })
